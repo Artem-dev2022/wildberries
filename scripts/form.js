@@ -8,6 +8,8 @@ export function form(){
             formPlaceholder.classList.add('form__placeholder--active')
         })
         formInput.addEventListener('blur', () => {
+            let val = formInput.value
+            formInput.value = val.trim()
             if ( formInput.value !== '') return
             formPlaceholder.classList.remove('form__placeholder--active')
         })

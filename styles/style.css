@@ -1104,6 +1104,7 @@ input[type=number] {
     top: -1px;
     left: 0px;
     transition: all 0.2s ease-in-out;
+    pointer-events: none;
 }
 
 .form__placeholder--active {
