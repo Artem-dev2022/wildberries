@@ -1007,6 +1007,15 @@ input[type=number] {
 
 .white-box__condition__item__date {
     margin-top: -5px;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.white-box__condition__item__date--active {
+    opacity: 1;
+    visibility: visible;
+    position: static;
 }
 
 .white-box__condition__images {
@@ -1015,6 +1024,14 @@ input[type=number] {
 }
 
 .white-box__condition__good {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.white-box__condition__good--active {
+    opacity: 1;
+    visibility: visible;
     position: relative;
 }
 

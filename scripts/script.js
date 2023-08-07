@@ -9,14 +9,17 @@ const cardCheckboxes = document.querySelectorAll('.card__checkbox-base');
 
 mainCheckbox.addEventListener('change', () => {
     if (mainCheckbox.checked) {
-        cardCheckboxes.forEach(check => {
+        cardCheckboxes.forEach((check, i) => {
             check.checked = true
             products.forEach(i => i.checked = true)
+            showChosenGoodsInDelivery(true, i)
         })
+        
     } else {
-        cardCheckboxes.forEach(check => {
+        cardCheckboxes.forEach((check, i)  => {
             check.checked = false
             products.forEach(i => i.checked = false)
+            showChosenGoodsInDelivery(false, i)
         })
     }
     refreshSidebar()
@@ -29,6 +32,8 @@ const totalOld = document.querySelector('.sidebar__item__old');
 const totalDiscount = document.querySelector('.sidebar__item__discount');
 const btnPaySpan = document.querySelector('.sidebar__btn__text--pay span');
 const deliveryAmount = document.querySelectorAll('.white-box__condition__amount');
+const chosenGoodsInDelivery = document.querySelectorAll('.white-box__condition__good');
+const deliveryDateRow = document.querySelectorAll('.white-box__condition__item__date');
 
 const products = [
     {price: 1051, discount: 50, chosenQuantity: 1, limitQuantity: 3, checked: false},
@@ -45,6 +50,27 @@ function refreshSidebar(){
     totalQuantity.textContent = products.filter(i => i.checked === true).reduce((p,j) => Number(p) + Number(j.chosenQuantity), 0)
     totalOld.textContent = products.filter(i => i.checked === true).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * Number(j.price), 0).toLocaleString('ru')
     totalDiscount.textContent = products.filter(i => i.checked === true).reduce((p,j) => Number(p) - Number(j.chosenQuantity) * Number(j.price) * Number(j.discount) / 100, 0).toLocaleString('ru')
+}
+
+function showChosenGoodsInDelivery(check, index){
+    if (check) {
+        chosenGoodsInDelivery[index].classList.add('white-box__condition__good--active')
+        if (index === 1)  {
+            chosenGoodsInDelivery[3].classList.add('white-box__condition__good--active')
+            deliveryDateRow[1].classList.add('white-box__condition__item__date--active')
+        }
+    } else {
+        chosenGoodsInDelivery[index].classList.remove('white-box__condition__good--active')
+        if (index === 1) {
+            chosenGoodsInDelivery[3].classList.remove('white-box__condition__good--active')
+            deliveryDateRow[1].classList.remove('white-box__condition__item__date--active')
+        }
+    }
+    if (products.filter(i => i.checked === false).length === 3) {
+        deliveryDateRow[0].classList.remove('white-box__condition__item__date--active')
+    } else {
+        deliveryDateRow[0].classList.add('white-box__condition__item__date--active')
+    }
 }
 
 productCards.forEach((card, index) => {
@@ -100,10 +126,14 @@ productCards.forEach((card, index) => {
             products[index].checked = false;
             sidebarTotalPrice -= products[index].chosenQuantity * (products[index].price - products[index].price * products[index].discount / 100)
             totalPrice.textContent = sidebarTotalPrice.toLocaleString('ru');
+
+            showChosenGoodsInDelivery(false, index)
         } else {
             products[index].checked = true;
             sidebarTotalPrice += products[index].chosenQuantity * (products[index].price - products[index].price * products[index].discount / 100)
             totalPrice.textContent = sidebarTotalPrice.toLocaleString('ru');
+
+            showChosenGoodsInDelivery(true, index)
         }
         refreshActualPrice()
     })
