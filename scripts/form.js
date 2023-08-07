@@ -18,6 +18,11 @@ export function form(){
                 let inputValue = formInput.value.replace(/[a-zA-Zа-яА-Я]/g, '');
                 formInput.value = inputValue
             })
+            formInput.addEventListener('blur', () => {
+                let val = formInput.value
+                let filterredVal = val.replace(/[^0-9\+]/g, '')
+                formInput.value = filterredVal.substr(0, 2) + ' ' + filterredVal.substr(2, 3) + ' ' + filterredVal.substr(5, 3) + ' ' + filterredVal.substr(8, 2)+ ' ' + filterredVal.substr(10, 2)
+            })
         }
         if (formInput.id === 'inn') {
             formInput.addEventListener('input', () => {
@@ -84,11 +89,6 @@ export function form(){
                 formInput.addEventListener('input', () => {
                     onError(checkTel, 'Укажите номер телефона', 'Формат: +9 999 999 99 99')
                 })
-                formInput.addEventListener('blur', () => {
-                    let val = formInput.value
-                    let filterredVal = val.replace(/[^0-9\+]/g, '')
-                    formInput.value = filterredVal.substr(0, 2) + ' ' + filterredVal.substr(2, 3) + ' ' + filterredVal.substr(5, 3) + ' ' + filterredVal.substr(8, 2)+ ' ' + filterredVal.substr(10, 2)
-                })
             }
 
             /// inn
@@ -108,7 +108,7 @@ export function form(){
 
     /// +7 (977) 543-26-54
     function checkTel(value){
-        if (value.split('').filter(i => Number(i)).length < 11) return false
+        if (value.split('').filter(i => Number(i) || i === '0').length < 11) return false
         const regExp = new RegExp(/^\+[0-9()\s-]{11,30}$/gm)
         return regExp.test(value)
     }
