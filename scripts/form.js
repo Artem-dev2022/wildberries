@@ -93,9 +93,9 @@ export function form(){
 
             /// inn
             if (formInput.id === 'inn') {
-                onError(checkINN, 'Укажите ИНН', 'Формат: 1234567')
+                onError(checkINN, 'Укажите ИНН', 'Проверьте ИНН')
                 formInput.addEventListener('input', () => {
-                    onError(checkINN, 'Укажите ИНН', 'Формат: 1234567')
+                    onError(checkINN, 'Укажите ИНН', 'Проверьте ИНН')
                 })
             }
         })
@@ -114,7 +114,7 @@ export function form(){
     }
 
     function checkINN(value){
-        const regExp = new RegExp(/^[0-9]{7,10}$/gm)
+        const regExp = new RegExp(/^[0-9]{14}$/gm)
         return regExp.test(value)
     }
 }

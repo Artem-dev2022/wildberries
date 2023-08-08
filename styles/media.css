@@ -312,6 +312,7 @@
         background: #fff;
     }
     .modal__window {
+        padding: 16px;
         max-width: 390px;
         min-width: 320px;
         height: 100svh;
