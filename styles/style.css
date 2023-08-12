@@ -229,7 +229,7 @@ a {
 }
 
 .main {
-    padding: 22px 24px 31px 24px;
+    padding: 22px 24px 34px 24px;
     width: 100%;
     height: 100%;
     border-radius: 24px;
@@ -319,7 +319,7 @@ a {
 .check-label span {
     font-size: 16px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 20px;
 }
 
 .check-base {
@@ -559,7 +559,7 @@ input[type=number] {
 
 .card__price__actual__amount {
     font-weight: 700;
-    line-height: 28px;
+    line-height: 20px;
     letter-spacing: -0.2px;
     font-size: 20px;
 }
@@ -739,6 +739,7 @@ input[type=number] {
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
+    width: 90%;
 }
 
 .sidebar__back__free {
@@ -779,7 +780,7 @@ input[type=number] {
 }
 
 .sidebar__pay {
-    margin-bottom: 24px;
+    margin-bottom: 23px;
 }
 
 .sidebar__pay__top {
@@ -875,7 +876,7 @@ input[type=number] {
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
-    width: 232px;
+    width: 90%;
 }
 
 .sidebar__agree__link {
@@ -1094,12 +1095,15 @@ input[type=number] {
     line-height: 16px;
 }
 
+.white-box-form {
+    padding: 17px 26px 7px 24px;
+}
 
 .form {
     padding: 36px 0 0 0;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 26px;
     max-width: 700px;
 }
 
@@ -1142,7 +1146,7 @@ input[type=number] {
 .form__description {
     font-size: 12px;
     font-weight: 400;
-    line-height: 14px;
+    line-height: 22px;
 }
 
 .form__field--error .form__input {

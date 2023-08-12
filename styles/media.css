@@ -202,6 +202,9 @@
         padding: 14px 16px 24px 14px;
         margin-bottom: 10px;
     }
+    .white-box-form {
+        padding: 14px 16px 5px 14px;
+    }
     .title-h3 {
         font-size: 20px;
         line-height: 28px; 
@@ -227,23 +230,33 @@
         width: 22;
         height: 22;
     }
+    .white-box-pay {
+        padding: 18px 16px 24px 14px;
+    }
+    .sidebar__back {
+        padding: 4px 8px 12px 11px;
+    }
     .sidebar__back__text {
         width: 233px;
     }
     .form {
-        padding-top: 28px;
-        gap: 32px;
+        padding-top: 25px;
+        gap: 34px;
     }
     .form__row {
         flex-direction: column;
+        gap: 34px;
     }
     .sidebar {
-        padding: 0px 14px 24px 13px;
+        padding: 4px 14px 24px 13px;
         max-width: 429px;
         min-width: 303px;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
+    }
+    .sidebar__pay {
+        margin-bottom: 26px;
     }
     .sidebar__total {
         margin-bottom: 20px;
@@ -273,7 +286,6 @@
     .sidebar__agree {
         width: auto;
     }
-
     .footer {
         margin-bottom: 59px;
     }
@@ -306,8 +318,6 @@
         line-height: 16px;
         color: #fff;
     }
-
-
     .modal {
         background: #fff;
     }
@@ -315,7 +325,7 @@
         padding: 16px;
         max-width: 390px;
         min-width: 320px;
-        height: 100svh;
+        height: 100vh;
         border-radius: 0;
         box-shadow: none;
     }
