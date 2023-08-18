@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        form {
+            padding: 10px;
+            border: 1px solid black;
+            width: 350px;
+            min-height: 100px;
+        }
+        input {
+            width: 250px;
+            height: 30px;
+        }
+        #hint{
+            color: red;
+        }
+    </style>
+
+    <form>
+        <input type="text" id="password">
+        <p>Надёжность пароля: <span id="security">0</span> %</p>
+        <span id="hint"></span>
+    </form>
+
+    <script src="./script.js"></script>
+</body>
+</html>

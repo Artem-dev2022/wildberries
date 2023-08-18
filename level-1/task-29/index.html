@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+    <form>
+        <input type="text" id="name" placeholder="name">
+        <input type="email" id="email" placeholder="email">
+        <label for="red">
+            <input type="radio" name="radio" id="red" checked>
+            красный
+        </label>
+        <label for="green">
+            <input type="radio" name="radio" id="green">
+            зелёный
+        </label>
+        <label for="yellow">
+            <input type="radio" name="radio" id="yellow">
+            жёлтый
+        </label>
+        <label for="check">
+            <input type="checkbox" id="check">
+            сохранить
+        </label>
+        
+        <button id="btn">Отправить</button>
+    </form>
+    <script src="./task-29.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Вычислить размер коллстэка в основных браузерах: 
+        // Chrome, Firefox, Opera и Safari (если есть возможность).
+
+        function getMaxCallStackSize(i){
+            console.log(i)
+            try {
+                return getMaxCallStackSize(++i)
+            } catch (error) {
+                console.error(error)
+                console.log('Call stack переполнен!')
+            }
+        }
+        getMaxCallStackSize(0)
+
+        // Результаты:
+        // Chrome: 8945
+        // Firefox: 26519
+        // Opera: 8945
+        // Safari: 39927
+
+        // функция представляет собой рекурсию
+        // сделано это для того чтобы call stack не очищался
+        // функции кладутся в очередь до тех пор пока браузер не выдаст ошибку Maximum call stack size exceeded
+        
+        // количество вызовов зависит от количества операций и переменных в js-файле
+    </script>
+</body>
+</html>
