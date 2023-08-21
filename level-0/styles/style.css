@@ -132,7 +132,7 @@ a {
 }
 
 .header__title {
-    width: 107px;
+    width: 124px;
     font-size: 28px;
     font-weight: 600;
     line-height: 22px;
@@ -357,16 +357,10 @@ a {
     width: 226px;
 }
 
-.check-label {}
-
 .card__checkbox {
     margin-right: 12px;
     padding-top: 37px;
 }
-
-.check-base {}
-
-.checkbox {}
 
 .card__img {
     align-self: flex-start;
@@ -402,10 +396,6 @@ a {
     line-height: 16px;
 }
 
-.card__color {}
-
-.card__size {}
-
 .card__grey {
     display: flex;
     color: #A0A0A4;
@@ -413,8 +403,6 @@ a {
     font-weight: 400;
     line-height: 16px;
 }
-
-.card__grey-address {}
 
 .card__grey-org {
     position: relative;
@@ -631,12 +619,7 @@ input[type=number] {
 
 .card__price__tooltip__sale {
     color: var(--light-system-gray, #A0A0A4);
-
 }
-
-.card__price__tooltip__value {}
-
-
 
 .sidebar {
     padding: 16px 24px 24px 24px;
@@ -680,8 +663,6 @@ input[type=number] {
     letter-spacing: -0.6px;
 }
 
-.sidebar__list {}
-
 .sidebar__item {
     display: flex;
     justify-content: space-between;
@@ -689,8 +670,6 @@ input[type=number] {
     font-weight: 400;
     line-height: 24px;
 }
-
-.sidebar__item__amount {}
 
 .sidebar__delivery {
     margin-bottom: 24px;
@@ -848,8 +827,6 @@ input[type=number] {
     line-height: 24px;
 }
 
-.sidebar__btn__text--order {}
-
 .sidebar__btn__text--pay {
     display: none;
     white-space: nowrap;
@@ -955,8 +932,6 @@ input[type=number] {
     display: flex;
     justify-content: space-between;
 }
-
-.white-box__title {}
 
 .white-box__change {
     font-size: 16px;
@@ -1086,8 +1061,6 @@ input[type=number] {
     margin-right: 14px;
 }
 
-.white-box__pay__term {}
-
 .white-box__pay-text {
     color: #A0A0A4;
     font-size: 13px;
@@ -1168,9 +1141,6 @@ input[type=number] {
     visibility: visible;
 }
 
-.footer {
-}
-
 .footer__copyrights {
     padding: 24px 0;
     color: rgba(255, 255, 255, 0.70);
@@ -1228,8 +1198,6 @@ input[type=number] {
     line-height: 28px;
     letter-spacing: -0.2px;
 }
-
-.modal__close {}
 
 .modal__list {
     display: flex;
