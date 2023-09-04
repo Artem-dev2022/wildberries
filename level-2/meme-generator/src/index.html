@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+<body>
+    <label class="file-label" for="file">
+        <input class="file" id="file" type="file" accept="image/*">
+        <span class="file-btn">Загрузить изображение</span>
+    </label>
+
+    <div class="container">
+        <canvas class="canvas" id="canvas"></canvas>
+        
+        <div class="text">
+            <div class="text__menu">
+                <input class="text__size" id="size" type="number" min="1" value="16">
+                <label class="text__label" for="text-color">
+                    <input type="color" id="text-color" value="#000000">
+                    <div class="text-color-btn"></div>
+                </label>
+                <button class="text__btn" id="bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M16.5 9.5C16.5 9.04037 16.4095 8.58525 16.2336 8.16061C16.0577 7.73597 15.7999 7.35013 15.4749 7.02513C15.1499 6.70012 14.764 6.44231 14.3394 6.26642C13.9148 6.09053 13.4596 6 13 6H8.5C8.23478 6 7.98043 6.10536 7.79289 6.29289C7.60536 6.48043 7.5 6.73478 7.5 7V17C7.5 17.2652 7.60536 17.5196 7.79289 17.7071C7.98043 17.8946 8.23478 18 8.5 18H13C13.6967 18.003 14.3783 17.7975 14.9572 17.4098C15.536 17.0221 15.9856 16.4701 16.2481 15.8247C16.5105 15.1794 16.5738 14.4703 16.4298 13.7886C16.2858 13.107 15.9411 12.4841 15.44 12C15.7743 11.6749 16.0403 11.2863 16.2223 10.857C16.4044 10.4277 16.4988 9.96631 16.5 9.5ZM13 16H9.5V13H13C13.3978 13 13.7794 13.158 14.0607 13.4393C14.342 13.7206 14.5 14.1022 14.5 14.5C14.5 14.8978 14.342 15.2794 14.0607 15.5607C13.7794 15.842 13.3978 16 13 16ZM13 11H9.5V8H13C13.3978 8 13.7794 8.15804 14.0607 8.43934C14.342 8.72064 14.5 9.10218 14.5 9.5C14.5 9.89782 14.342 10.2794 14.0607 10.5607C13.7794 10.842 13.3978 11 13 11Z" fill="black"/>
+                    </svg>
+                </button>
+                <button class="text__btn" id="italic">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M17 6H11C10.7348 6 10.4804 6.10536 10.2929 6.29289C10.1054 6.48043 10 6.73478 10 7C10 7.26522 10.1054 7.51957 10.2929 7.70711C10.4804 7.89464 10.7348 8 11 8H12.52L9.32 16H7C6.73478 16 6.48043 16.1054 6.29289 16.2929C6.10536 16.4804 6 16.7348 6 17C6 17.2652 6.10536 17.5196 6.29289 17.7071C6.48043 17.8946 6.73478 18 7 18H13C13.2652 18 13.5196 17.8946 13.7071 17.7071C13.8946 17.5196 14 17.2652 14 17C14 16.7348 13.8946 16.4804 13.7071 16.2929C13.5196 16.1054 13.2652 16 13 16H11.48L14.68 8H17C17.2652 8 17.5196 7.89464 17.7071 7.70711C17.8946 7.51957 18 7.26522 18 7C18 6.73478 17.8946 6.48043 17.7071 6.29289C17.5196 6.10536 17.2652 6 17 6Z" fill="black"/>
+                    </svg>
+                </button>
+            </div>
+            <input type="text" class="text__input">
+            <button class="addTextBtn">Добавить текст</button>
+        </div>
+    </div>
+    
+    <button class="download-btn">Скачать мем</button>
+    
+    <script src="./js/script.js"></script>
+</body>
+</html>
