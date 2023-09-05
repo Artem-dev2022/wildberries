@@ -1,0 +1,287 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: cornsilk;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+    width: 90vw;
+}
+
+.form {
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(220, 255, 225);
+}
+.form__left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.form__error {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    color: red;
+    opacity: 0;
+    visibility: hidden;
+    font-weight: 900;
+}
+
+.form__error--active {
+    opacity: 1;
+    visibility: visible;
+}
+.form__top {
+    display: flex;
+    gap: 10px;
+}
+.form__time {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.form__date {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+
+.form__input {
+    margin-right: 20px;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.form__btn {
+    padding: 10px 40px;
+    height: 40px;
+    background-color: coral;
+    color: white;
+    font-weight: 800;
+    border-radius: 5px;
+    transition: all 0.15s ease-in-out;
+}
+
+.form__btn:hover {
+    background-color: rgb(218, 79, 29);
+}
+
+
+.sort {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sort__span {
+}
+.sort__btn {
+    padding:  5px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    background-color: rgba(100, 148, 237, 0.19);
+}
+.sort__btn--active {
+    background-color: cornflowerblue;
+    color: #fff;
+}
+
+
+
+.list {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(225, 220, 255);
+}
+
+.task__bottom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.task__left {
+    margin: 0 auto auto auto;
+}
+
+
+
+.task__fake {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.task__label {
+    display: flex;
+}
+
+.task__checkbox {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.task__checkbox:checked + .task__fake::after {
+    content: '✔';
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    display: block;
+}
+
+.task__id {
+    white-space: nowrap;
+}
+
+.task__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.task__label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.task__input {
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    color: black;
+    background-color: rgba(138, 43, 226, 0.2);
+    border: none;
+    border-radius: 5px;
+}
+
+.task__input::placeholder {
+    color: red;
+}
+
+.task__input:read-only {
+    background-color: #fff;
+}
+
+.task__datetime {
+    display: flex;
+    gap: 10px;
+}
+
+.task__term {
+    line-height: 32px;
+}
+
+.task__time,
+.task__date {
+    padding: 10px;
+    width: fit-content;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+.task__buttons {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 0 auto;
+    gap: 10px;
+}
+
+.task__button {
+    padding: 10px;
+    display: none;
+    height: 40px;
+    width: 150px;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: all 0.15s ease-in-out;
+}
+
+.task__button--edit {
+    background-color: cornflowerblue;
+}
+.task__button--edit:hover {
+    background-color: rgb(34, 84, 177);
+}
+.task__button--save {
+    background-color: rgb(237, 225, 100);
+}
+.task__button--save:hover {
+    background-color: rgb(184, 169, 13);
+}
+.task__button--delete {
+    background-color: rgb(237, 100, 100);
+}
+.task__button--delete:hover {
+    background-color: rgb(184, 19, 19);
+}
+.task__button--active {
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .form {
+        flex-direction: column;
+    }
+    .form__input {
+        width: 100%;
+    }
+    .task {
+        padding: 5px;
+        flex-direction: column;
+    }
+    .task__input {
+        width: 100%;
+    }
+    .task__datetime {
+        flex-direction: column;
+    }
+    .form__error {
+        top: 160px;
+        left: 0px;
+    }
+}

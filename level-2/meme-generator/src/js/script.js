@@ -23,7 +23,7 @@ function drawShapes(){
         }
         if (shape.type === 'text') {
             context.fillStyle = shape.color;
-            context.font = `${shape.fontWeight} ${shape.fontStyle} ${shape.fontSize}px serif`;
+            context.font = `${shape.fontWeight} ${shape.fontStyle} ${shape.fontSize}px sans-serif`;
             context.textBaseline = 'top';
             context.fillText(shape.text, shape.x, shape.y);
         }

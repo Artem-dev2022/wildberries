@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генератор мемов</title>
+    <title>To-do-app</title>
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <form class="form">
+            <div class="form__left">
+                <span class="form__error">Введите задачу!</span>
+                <div class="form__top">
+                    <input class="form__time" type="time" id="input-time">
+                    <input class="form__date" type="date" id="input-date">
+                </div>
+                <input class="form__input" type="text" id="input-add" placeholder="Новая задача">
+                <input class="form__input" type="text" id="input-desc" placeholder="Описание">
+            </div>
+            <button class="form__btn" id="btn-add">Создать</button>
+        </form>
+
+        <div class="sort">
+            <span class="sort__span">Сортировать по: </span>
+            <button class="sort__btn" id="sort-creation">Дате создания</button>
+            <button class="sort__btn" id="sort-term">Сроку выполнения</button>
+        </div>
+
+        <div class="list" id="list"></div>
+    </div>
+
     <script src="./js/script.js"></script>
 </body>
 </html>
