@@ -1,28 +1,28 @@
 const data = [
     {
-        title: 'Twilight Of The Thunder God',
-        artist: 'Amon Amarth',
-        url: './assets/audio/amon-amarth-twilight-of-the-thunder-god.mp3'
+        title: 'music1',
+        artist: 'unknown',
+        url: './assets/audio/music1.mp3'
     },
     {
-        title: 'War Of The Gods',
-        artist: 'Amon Amarth',
-        url: './assets/audio/amon-amarth-war-of-the-gods.mp3'
+        title: 'music2',
+        artist: 'unknown',
+        url: './assets/audio/music2.wav'
     },
     {
-        title: 'Born For One Thing',
-        artist: 'Gojira',
-        url: './assets/audio/Gojira_-_Born_For_One_Thing_72694457.mp3'
+        title: 'music3',
+        artist: 'unknown',
+        url: './assets/audio/music3.mp3'
     },
     {
-        title: 'Satan Is Real',
-        artist: 'Kreator',
-        url: './assets/audio/kreator-satan-is-real.mp3'
+        title: 'music4',
+        artist: 'unknown',
+        url: './assets/audio/music4.mp3'
     },
     {
-        title: 'The River',
-        artist: 'Parkway Drive',
-        url: './assets/audio/parkway-drive-the-river.mp3'
+        title: 'music5',
+        artist: 'unknown',
+        url: './assets/audio/music5.mp3'
     }
 ]
 

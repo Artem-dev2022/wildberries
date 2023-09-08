@@ -36,10 +36,10 @@ let wavesurfer = WaveSurfer.create({
     interact: false,
     setMuted: true,
     media: audio,
-    url: './assets/audio/amon-amarth-twilight-of-the-thunder-god.mp3',
+    url: './assets/audio/music1.mp3',
 })
 
-function refreshWaves(songUrl){
+function refreshWaves(songUrl, play = true){
     wavesurfer.destroy()
     wavesurfer = WaveSurfer.create({
         container: '#waveform',
@@ -55,9 +55,11 @@ function refreshWaves(songUrl){
         media: audio,
         url: songUrl,
     })
-    wavesurfer.on('ready', () => {
-        wavesurfer.play()
-    })
+    if (play) {
+        wavesurfer.on('ready', () => {
+            wavesurfer.play()
+        })
+    }
 }
 
 function getSongs(songList){
@@ -189,8 +191,10 @@ function switchSong(arr = songs, action = 'play'){
 
     if (action === 'play') {
         audio.play()
+        refreshWaves(songs[nowPlayingIndex].url, true)
     } else {
         audio.pause()
+        refreshWaves(songs[nowPlayingIndex].url, false)
     }
     
     playerTitle.textContent = songs[nowPlayingIndex].title
@@ -198,7 +202,6 @@ function switchSong(arr = songs, action = 'play'){
     audio.onloadeddata = function(){
         playerDuration.textContent = getAudioTime(audio.duration)
     }
-    refreshWaves(songs[nowPlayingIndex].url)
 }
 
 audio.addEventListener('timeupdate', setProgress)
