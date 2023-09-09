@@ -6,3 +6,6 @@ https://artem-dev2022.github.io/wildberries/level-2/todo-list/src/index.html
 
 ## Музыкальный плеер с визуализацией:
 https://artem-dev2022.github.io/wildberries/level-2/audio-player/src/index.html
+
+## Игра «Угадай число»:
+https://artem-dev2022.github.io/wildberries/level-2/guess-the-number/src/index.html
