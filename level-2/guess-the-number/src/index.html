@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+    <link rel="shortcut icon" type="image/png" href="./img/JS.png"/>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Игра «Угадай число»</h1>
+        <p class="description">Компьютер загадывает число, а ты попытайся его угадать.</p>
+    </header>
+    <div class="container">
+        <div class="container__top">
+            <div class="container__left">
+                <form class="form">
+                    <h2 class="subtitle form__subtitle">Диапозон</h2>
+                    <div class="form__fields">
+                        <label class="form__label" for="from">
+                            <span class="form__placeholder">От:</span>
+                            <input class="form__input" type="text" id="from" value="1" min="1">
+                        </label>
+                        <label class="form__label" for="to">
+                            <span class="form__placeholder">До:</span>
+                            <input class="form__input" type="text" id="to" value="100" min="2">
+                        </label>
+                    </div>
+                    <button class="form__btn">Начать игру</button>
+                </form>
+            </div>
+
+            <div class="container__right">
+                <h2 class="subtitle">Счётчик попыток</h2>
+                <span class="counter">0</span>
+            </div>
+        </div>
+
+        <form class="answer">
+            <h2 class="answer__title">Твой ответ:</h2>
+            <p class="answer__error">Твоё число за пределами диапозона!</p>
+            <input class="answer__input" type="text" min="1">
+            <div class="answer__buttons">
+                <button class="answer__btn answer__btn--red">Начать заново</button>
+                <button class="answer__btn answer__btn--green">Ответить</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="hint">
+        <h2 class="subtitle hint__subtitle">Подсказки:</h2>
+        <ul class="hint__list"></ul>
+    </div>
+
+    <div class="dark-background">
+        <div class="modal">
+            <h2 class="modal__title">Поздравляем!</h2>
+            <p class="modal__text">Ты выиграл <span class="modal__preposition"></span> <span class="modal__quantity"></span> попытки!</p>
+            <button class="modal__btn">Играть заново</button>
+        </div>
+    </div>
+    
+    <script src="./js/script.js"></script>
+</body>
+</html>
