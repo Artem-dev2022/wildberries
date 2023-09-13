@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --text-purple: #5e6180;
+    --purple: #804AF2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #F2F8FD;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.side-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20vw;
+    min-width: 300px;
+    padding-right: 20px;
+    background-color: #fff;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav__btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 0px 0px 20px;
+    width: 250px;
+    height: 50px;
+    border-radius: 12px;
+    transition: all 0.15s;
+    color: var(--text-purple);
+    font-size: 16px;
+}
+
+.nav__btn:hover {
+    background: rgba(123, 64, 242, 0.1);
+}
+
+.nav__btn--active {
+    background: rgba(123, 64, 242, 0.2);
+}
+
+.nav__btn--active:hover {
+    background: rgba(123, 64, 242, 0.2)
+}
+
+.warning {
+    margin: auto 15px auto auto;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container {
+    width: 100%;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--text-purple);
+    margin-bottom: 30px;
+}
+
+.app {
+    position: absolute;
+    top: 0px;
+    left: max(320px, 25vw);
+    padding-top: 20px;
+    width: 60vw;
+}
+
+.container__top {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 50px;
+}
+
+.search {
+    position: relative;
+}
+
+.search__icon {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+}
+
+.search__input {
+    padding: 5px 5px 5px 50px;
+    width: 400px;
+    height: 45px;
+    border-radius: 8px;
+}
+
+.table {
+    width: 100%;
+}
+
+.table__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px 5px 20px;
+    margin-bottom: 15px;
+    height: 40px;
+    border-radius: 5px;
+    background: var(--purple);
+}
+
+.table__head--eating {
+    padding-right: 90px;
+}
+
+.table__head__title {
+    color: white;
+}
+
+.table__head__right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.table__head__right--eating {
+    width: 210px;
+}
+
+.btn-sort {
+    padding: 5px 0 0 0;
+}
+
+.table__body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.table__product {
+    padding: 7px 10px 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 32px;
+    border-radius: 5px;
+    background: #FFF;
+}
+
+.table__product__right {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.table__product__cal {
+    width: 120px;
+    text-align: center;
+}
+
+.add-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: var(--text-purple);
+    margin-bottom: 20px;
+    transition: color 0.15s;
+}
+
+.add-btn svg path {
+    transition: color 0.15s;
+}
+
+.add-btn:hover {
+    color: var(--purple);
+}
+
+.add-btn:hover svg path {
+    fill: var(--purple);
+}
+
+.add-product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: var(--text-purple);
+    margin-bottom: 20px;
+}
+
+.modal-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: opacity 0.15s;
+    z-index: 100;
+}
+
+.modal-bg {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.modal__title {
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.modal__label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.modal__input {
+    padding: 5px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--purple);
+}
+
+.modal__error {
+    color: red;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal__btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--purple);
+    transition: all 0.15s;
+}
+
+.modal__btn:hover {
+    background-color: rgb(89, 53, 167);
+}
+
+.modal-product__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.target__title {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.target__row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.target__input {
+    padding: 5px;
+    width: 150px;
+    height: 45px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.target__btn {
+    width: 150px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: var(--purple);
+}
+
+.target__btn__text {
+    color: white;
+}
+
+.target__btn--edit .target__btn__text--save {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.target__btn--edit .target__btn__text--edit {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+}
+
+.target__btn__text--save {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+}
+
+.target__btn__text--edit {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.table__body::-webkit-scrollbar {
+    width: 0;
+}
+
+.amount__label {
+    margin-bottom: 20px;
+}
+
+.statistics__subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-purple);
+    margin-bottom: 10px;
+}
+
+.warning-message {
+    font-size: 16px;
+    font-weight: 800;
+    color: red;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.statistics__top {
+    margin-bottom: 20px;
+}
+
+.statistics__ratio {
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.chart__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 50px;
+    height: 150px;
+    margin-bottom: 5px;
+}
+
+.chart__column {
+    width: 100%;
+    height: 50px;
+    min-height: 1px;
+    background-color: var(--purple);
+}
+
+.chart__food {
+    height: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    writing-mode: vertical-rl;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}

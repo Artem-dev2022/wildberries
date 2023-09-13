@@ -60,7 +60,10 @@ answerBtn.addEventListener('click', (e) => {
         const hintContent = document.createElement('p');
         hintContent.classList.add('hint__content')
 
-        if (+inputAnswer.value > inputTo.value || +inputAnswer.value < inputFrom.value) {
+        let min = Math.min(inputTo.value, inputFrom.value)
+        let max = Math.max(inputTo.value, inputFrom.value)
+
+        if (+inputAnswer.value > max || +inputAnswer.value < min) {
             answerError.classList.add('visible')
         }
 
