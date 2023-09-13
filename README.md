@@ -9,3 +9,6 @@ https://artem-dev2022.github.io/wildberries/level-2/audio-player/src/index.html
 
 ## Игра «Угадай число»:
 https://artem-dev2022.github.io/wildberries/level-2/guess-the-number/src/index.html
+
+## Калькулятор калорий:
+https://artem-dev2022.github.io/wildberries/level-2/calorie-calculator/src/index.html
