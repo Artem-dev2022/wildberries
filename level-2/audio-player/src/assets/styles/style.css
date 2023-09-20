@@ -409,6 +409,7 @@ body {
     border-radius: 50%;
     background-color: #dcdcdc;
     border: 1px solid black;
+    touch-action: none
 }
 
 #waveform {

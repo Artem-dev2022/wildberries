@@ -114,7 +114,7 @@ window.onresize = getOffset
 canvas.onresize = getOffset
 
 function mouseDown(e){
-    e.preventDefault();
+    //e.preventDefault();
 
     startX = parseInt(e.clientX - offsetX);
     startY = parseInt(e.clientY - offsetY);
@@ -133,14 +133,14 @@ function mouseUp(e){
     if (!isDragging) {
         return
     }
-    e.preventDefault();
+    //e.preventDefault();
     isDragging = false;
 }
 function mouseOut(e){
     if (!isDragging) {
         return
     }
-    e.preventDefault();
+    //e.preventDefault();
     isDragging = false;
 }
 
@@ -148,7 +148,7 @@ function mouseMove(e){
     if (!isDragging) {
         return
     } else {
-        e.preventDefault()
+        //e.preventDefault()
         let mouseX = parseInt(e.clientX - offsetX);
         let mouseY = parseInt(e.clientY - offsetY);
 
@@ -165,10 +165,10 @@ function mouseMove(e){
     }
 }
 
-canvas.onmousedown = mouseDown
-canvas.onmouseup = mouseUp
-canvas.onmouseout = mouseOut
-canvas.onmousemove = mouseMove
+canvas.addEventListener('pointerdown', mouseDown)
+canvas.addEventListener('pointerup', mouseUp)
+canvas.addEventListener('pointerout', mouseOut)
+canvas.addEventListener('pointermove', mouseMove)
 
 function isMouseInShape(x, y, shape){
     let shapeLeft = shape.x;

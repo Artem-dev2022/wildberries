@@ -47,21 +47,21 @@ function sliders(){
 
     function mouseDown(){
         audio.removeEventListener('timeupdate', setProgress)
-        document.addEventListener('mousemove', mouseMove)
+        document.addEventListener('pointermove', mouseMove)
     }
 
     function mouseUp(){
         audio.addEventListener('timeupdate', setProgress)
-        document.removeEventListener('mousemove', mouseMove)
-        document.removeEventListener('mousemove', volumeMouseMove)
+        document.removeEventListener('pointermove', mouseMove)
+        document.removeEventListener('pointermove', volumeMouseMove)
     }
 
-    playerSlider.addEventListener('mousedown', mouseDown)
+    playerSlider.addEventListener('pointerdown', mouseDown)
 
-    document.addEventListener('mouseup', mouseUp)
+    document.addEventListener('pointerup', mouseUp)
 
     function volumeMouseDown(){
-        document.addEventListener('mousemove', volumeMouseMove)
+        document.addEventListener('pointermove', volumeMouseMove)
     }
     
     function volumeMouseMove(e){
@@ -72,7 +72,7 @@ function sliders(){
         }
     }
 
-    volumeHandle.addEventListener('mousedown', volumeMouseDown)
+    volumeHandle.addEventListener('pointerdown', volumeMouseDown)
 }
 
 export default sliders
