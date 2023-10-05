@@ -1,6 +1,6 @@
 @media (max-width: 1023px) {
     .container {
-        max-width: 390px;
+        /* max-width: 390px; */
     }
     .header {
         padding: 16px 16px 18px 16px;
@@ -64,6 +64,7 @@
     }
     .basket {
         padding-top: 13px;
+        max-width: 100%;
     }
     .basket__title {
         margin-bottom: 18px;
@@ -136,6 +137,12 @@
         gap: 16px;
         margin-right: 0;
         width: 100%;
+    }
+    .card__wrapper__left {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
     }
     .card__count__btn {
         width: 24px;
@@ -245,11 +252,12 @@
         padding: 8px 8px 12px 11px;
     }
     .sidebar__back__text {
-        width: 233px;
+        width: 85%;
     }
     .form {
         padding-top: 25px;
         gap: 34px;
+        max-width: 100%;
     }
     .form__row {
         flex-direction: column;
@@ -257,8 +265,7 @@
     }
     .sidebar {
         padding: 4px 14px 24px 13px;
-        max-width: 429px;
-        min-width: 303px;
+        max-width: 100%;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
@@ -292,7 +299,14 @@
         font-size: 13px;
     }
     .sidebar__agree {
-        width: auto;
+        margin: 0 auto;
+        display: block;
+        width: fit-content;
+    }
+    .sidebar__btn  {
+        display: block;
+        margin: 0 auto 12px auto;
+        max-width: 280px;
     }
     .footer {
         margin-bottom: 59px;
@@ -331,7 +345,8 @@
     }
     .modal__window {
         padding: 16px;
-        max-width: 390px;
+        max-width: 800px;
+        width: 100%;
         min-width: 320px;
         height: 100vh;
         border-radius: 0;
@@ -339,16 +354,24 @@
     }
     .modal__buttons__btn {
         padding: 9px 0 11px 0;
-        width: 140px;
+        width: 100%;
+        min-width: 140px;
         border-radius: 24px;
         font-size: 13px;
         font-weight: 700;
         line-height: 16px;
     }
+    .modal__label {
+        width: 100%;
+    }
     .modal__item__text {
-        max-width: 217px;
+        width: 70%;
+        max-width: 70%;
     }
     .modal__btn {
+        display: block;
+        max-width: 400px;
         width: 100%;
+        margin: auto auto 0 auto;
     }
 }
