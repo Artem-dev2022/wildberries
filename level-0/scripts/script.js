@@ -1,8 +1,10 @@
 import { modals } from './modal.js'
 import { form } from './form.js'
+import { outOfStock } from './out-of-stock.js'
 
 modals()
 form()
+outOfStock()
 
 const mainCheckbox = document.getElementById('check');
 const cardCheckboxes = document.querySelectorAll('.card__checkbox-base');
@@ -11,14 +13,21 @@ mainCheckbox.addEventListener('change', () => {
     if (mainCheckbox.checked) {
         cardCheckboxes.forEach((check, i) => {
             check.checked = true
-            products.forEach(i => i.checked = true)
+            products.forEach(j => {
+                if (j.deleted === false) {
+                    j.checked = true
+                }
+            })
             showChosenGoodsInDelivery(true, i)
         })
-        
     } else {
         cardCheckboxes.forEach((check, i)  => {
             check.checked = false
-            products.forEach(i => i.checked = false)
+            products.forEach(j => {
+                if (j.deleted === false) {
+                    j.checked = false
+                }
+            })
             showChosenGoodsInDelivery(false, i)
         })
     }
@@ -36,20 +45,20 @@ const chosenGoodsInDelivery = document.querySelectorAll('.white-box__condition__
 const deliveryDateRow = document.querySelectorAll('.white-box__condition__item__date');
 
 const products = [
-    {price: 1051, discount: 50, chosenQuantity: 1, limitQuantity: 3, checked: false},
-    {price: 11500, discount: 10, chosenQuantity: 200, limitQuantity: 204, checked: false},
-    {price: 476, discount: 48, chosenQuantity: 2, limitQuantity: 4, checked: false}
+    {price: 1051, discount: 50, chosenQuantity: 1, limitQuantity: 3, checked: false, deleted: false},
+    {price: 11500, discount: 10, chosenQuantity: 200, limitQuantity: 204, checked: false, deleted: false},
+    {price: 476, discount: 48, chosenQuantity: 2, limitQuantity: 4, checked: false, deleted: false}
 ]
 
 let sidebarTotalPrice = 0
 
 function refreshSidebar(){
-    const price = products.filter(i => i.checked === true).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * ((Number(j.price) - (Number(j.price) * Number(j.discount) / 100))), 0).toLocaleString('ru')
+    const price = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * ((Number(j.price) - (Number(j.price) * Number(j.discount) / 100))), 0).toLocaleString('ru')
     totalPrice.textContent = price
     btnPaySpan.textContent = price
-    totalQuantity.textContent = products.filter(i => i.checked === true).reduce((p,j) => Number(p) + Number(j.chosenQuantity), 0)
-    totalOld.textContent = products.filter(i => i.checked === true).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * Number(j.price), 0).toLocaleString('ru')
-    totalDiscount.textContent = products.filter(i => i.checked === true).reduce((p,j) => Number(p) - Number(j.chosenQuantity) * Number(j.price) * Number(j.discount) / 100, 0).toLocaleString('ru')
+    totalQuantity.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity), 0)
+    totalOld.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * Number(j.price), 0).toLocaleString('ru')
+    totalDiscount.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) - Number(j.chosenQuantity) * Number(j.price) * Number(j.discount) / 100, 0).toLocaleString('ru')
 }
 
 function showChosenGoodsInDelivery(check, index){
@@ -82,6 +91,27 @@ productCards.forEach((card, index) => {
     const oldPrice = card.querySelector('.card__price__old__amount')
     const cardQuantity = card.querySelector('.card__quantity')
     const cardQuantityLimit = card.querySelector('.card__quantity span')
+    const favorite = card.querySelector('.card__btn--fav')
+
+    favorite.addEventListener('click', () => {
+        favorite.classList.toggle('card__btn--active')
+    })
+
+    const deleteCard = card.querySelector('.card__btn--del');
+
+    deleteCard.addEventListener('click', () => {
+        card.remove()
+        
+        products[index].deleted = true;
+        products[index].checked = false;
+        refreshSidebar()
+        showChosenGoodsInDelivery(false, index)
+       /*  products[index].checked = false;
+        sidebarTotalPrice -= products[index].chosenQuantity * (products[index].price - products[index].price * products[index].discount / 100)
+        totalPrice.textContent = sidebarTotalPrice.toLocaleString('ru');
+        refreshSidebar()
+        showChosenGoodsInDelivery(false, index) */
+    })
 
     function refreshActualPrice(){
         products[index].chosenQuantity = counterInput.value

@@ -85,6 +85,9 @@
         position: relative;
         flex-direction: column;
     }
+    .card .checkbox {
+        background-color: #fff;
+    }
     .card__checkbox {
         position: absolute;
         top: 4px;
@@ -373,5 +376,11 @@
         max-width: 400px;
         width: 100%;
         margin: auto auto 0 auto;
+    }
+    .absent__card__btn--fav,
+    .absent__card__btn--del,
+    .card__btn--fav,
+    .card__btn--del {
+        opacity: 1;
     }
 }

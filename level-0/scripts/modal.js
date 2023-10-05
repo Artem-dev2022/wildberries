@@ -4,9 +4,16 @@ export function modals(){
     const payChange = document.querySelector('.white-box-pay .white-box__change');
     const closeModalPay = document.querySelector('.modal-pay__close')
 
+    function closeModalPayPopUp(){
+        modalPay.classList.remove('modal--active')
+        payData.forEach(item => item.chosen = false);
+        payData[0].chosen = true
+        modalCards[0].checked = true
+    }
+
     modalPay.addEventListener('click', (e) => {
         if (e.target !== modalPay) return
-        modalPay.classList.remove('modal--active')
+        closeModalPayPopUp()
     })
     payIcon.addEventListener('click', () => {
         modalPay.classList.add('modal--active')
@@ -15,7 +22,7 @@ export function modals(){
         modalPay.classList.add('modal--active')
     })
     closeModalPay.addEventListener('click', () => {
-        modalPay.classList.remove('modal--active')
+        closeModalPayPopUp()
     })
 
     const modalDelivery = document.querySelector('.modal-delivery');
@@ -23,9 +30,22 @@ export function modals(){
     const deliveryChange = document.querySelector('.white-box-delivery .white-box__change');
     const closeModalDelivery = document.querySelector('.modal-delivery__close')
 
+    function setFirstAddressChecked(){
+        const addresses = document.querySelectorAll('.modal-delivery .modal__radio-base');
+        if (addresses.length) {
+            addresses[0].checked = true
+        }
+    }
+    function closeModalDeliveryPopUp(){
+        modalDelivery.classList.remove('modal--active')
+        deliveryData.forEach(item => item.chosen = false);
+        deliveryData[0].chosen = true
+
+        setFirstAddressChecked()
+    }
     modalDelivery.addEventListener('click', (e) => {
         if (e.target !== modalDelivery) return
-        modalDelivery.classList.remove('modal--active')
+        closeModalDeliveryPopUp()
     })
     deliveryIcon.addEventListener('click', () => {
         modalDelivery.classList.add('modal--active')
@@ -34,7 +54,7 @@ export function modals(){
         modalDelivery.classList.add('modal--active')
     })
     closeModalDelivery.addEventListener('click', () => {
-        modalDelivery.classList.remove('modal--active')
+        closeModalDeliveryPopUp()
     })
 
     const toPostBtn = document.getElementById('to-post');
@@ -71,7 +91,26 @@ export function modals(){
     modalDeliveryBtn.addEventListener('click', () => {
         sidebarAddress.textContent = deliveryData.find(item => item.chosen === true).address
         whiteBoxAddress.textContent = deliveryData.find(item => item.chosen === true).address
-        modalDelivery.classList.remove('modal--active')
+        closeModalDeliveryPopUp()
+    })
+
+    /// delete address   
+    const modalListEmpty = document.querySelector('.modal-list-empty')
+
+    const addresItems = document.querySelectorAll('.modal-delivery .modal__item');
+    addresItems.forEach(i => {
+        const modalDelete = i.querySelector('.modal__remove');
+        modalDelete.addEventListener("click", () => {
+            i.remove()
+            const modalList = document.querySelector('.modal-delivery .modal__list')
+            if (modalList.children.length === 0) {
+                modalListEmpty.style.display = 'block'
+                modalDeliveryBtn.style.opacity = '0.2'
+                modalDeliveryBtn.style.pointerEvents = 'none'
+                return
+            }
+            setFirstAddressChecked()
+        })
     })
 
     /// choose pay method
@@ -101,6 +140,6 @@ export function modals(){
         whiteBoxCardNumber.textContent = payData.find(item => item.chosen === true).card
         sidebarCardImg.src = payData.find(item => item.chosen === true).img
         whiteBoxCardImg.src = payData.find(item => item.chosen === true).img
-        modalPay.classList.remove('modal--active')
+        closeModalPayPopUp()
     })
 }

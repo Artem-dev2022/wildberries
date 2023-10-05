@@ -346,10 +346,6 @@ a {
     width: 100%;
 }
 
-.card .checkbox {
-    background-color: #fff;
-}
-
 .card__left {
     display: flex;
 }
@@ -521,12 +517,36 @@ input[type=number] {
     display: flex;
     justify-content: end;
     gap: 16px;
-    opacity: 0;
-    transition: all 0.1s ease-in-out;
 }
 
-.card:hover .card__buttons {
+.card__btn--fav,
+.card__btn--del {
+    opacity: 0;
+    transition: all 0.1s ease-in-out; 
+}
+
+.absent__card__btn--fav,
+.absent__card__btn--del {
+    opacity: 0;
+}
+
+.card:hover .card__btn--fav,
+.card:hover .card__btn--del,
+.card:hover .absent__card__btn--fav,
+.card:hover .absent__card__btn--del {
     opacity: 1;
+}
+
+.card__btn--active {
+    opacity: 1;
+}
+
+.card__btn--active svg path {
+    fill: var(--system-orange)
+}
+
+.absent__card__btn--active svg path {
+    fill: var(--system-orange)
 }
 
 .card__btn svg path {
@@ -922,10 +942,18 @@ input[type=number] {
     padding-right: 125px;
 }
 
-.absent__card__buttons .card__btn:hover svg path {
+.absent__card__btn--fav:hover svg path,
+.absent__card__btn--del:hover svg path {
     fill: var(--system-magenta)
 }
 
+.absent__card__btn--active {
+    opacity: 1;
+}
+
+.absent__card__btn--active svg path{
+    fill: var(--system-magenta)
+}
 
 
 .white-box {
@@ -1327,5 +1355,9 @@ input[type=number] {
 }
 
 .mobile__nav {
+    display: none;
+}
+
+.modal-list-empty {
     display: none;
 }
