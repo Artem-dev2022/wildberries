@@ -36,7 +36,7 @@ export function form(){
     const btnPay = document.querySelector('.sidebar__btn');
 
     function scrollToError(errorField){
-        if (window. innerWidth < 1024) {
+        if (window.innerWidth < 1024) {
             errorField.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'

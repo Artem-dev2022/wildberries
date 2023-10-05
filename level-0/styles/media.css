@@ -141,6 +141,7 @@
         width: 24px;
     }
     .card__count__input {
+        font-size: 14px;
         width: 32px;
     }
     .card__count__btn--minus {
@@ -194,6 +195,10 @@
         width: 80vw;
         max-width: 320px;
     }
+    .sidebar__back,
+    .sidebar__pay__annul {
+        background-color: #F0ECF4;
+    }
     .sidebar__back__free:active ~ .sidebar__tooltip {
         opacity: 1;
         visibility: visible;
@@ -214,7 +219,7 @@
         line-height: 16px;
     }
     .white-box__condition {
-        margin-bottom: 28px;
+        margin-bottom: 20px;
     }
     .white-box__condition__item {
         flex-direction: column;
@@ -222,6 +227,9 @@
     }
     .white-box__condition__item__date {
         gap: 11px;
+    }
+    .white-box__condition__item__date--first {
+        padding-bottom: 8px;
     }
     .white-box__back {
         padding: 0 0 0 8px;
@@ -234,7 +242,7 @@
         padding: 18px 16px 24px 14px;
     }
     .sidebar__back {
-        padding: 4px 8px 12px 11px;
+        padding: 8px 8px 12px 11px;
     }
     .sidebar__back__text {
         width: 233px;
@@ -259,7 +267,7 @@
         margin-bottom: 26px;
     }
     .sidebar__total {
-        margin-bottom: 20px;
+        margin-bottom: 17px;
     }
     .sidebar__total__title {
         font-size: 20px;

@@ -24,7 +24,6 @@
 
 :root {
     --system-violet: #6725A8;
-    --system-coral: #FF3B30;
     --system-magenta: #CB11AB;
     --system-orange: #F55123;
 }
@@ -88,7 +87,7 @@ a {
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1352px;
     margin: 0 auto;
 }
 
@@ -132,7 +131,7 @@ a {
 }
 
 .header__title {
-    width: 124px;
+    width: 105px;
     font-size: 28px;
     font-weight: 600;
     line-height: 22px;
@@ -500,7 +499,7 @@ input[type=number] {
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
-    color: var(--system-coral);
+    color: var(--system-orange);
 }
 
 .card__quantity--hidden {
@@ -526,7 +525,7 @@ input[type=number] {
 }
 
 .card__btn:hover svg path {
-    fill: var(--system-coral)
+    fill: var(--system-orange)
 }
 
 .card__prices {
@@ -792,12 +791,17 @@ input[type=number] {
     background: #F6F6FA;
 }
 
+.sidebar__pay__annul .checkbox {
+    background-color: transparent;
+}
+
 .sidebar__checkbox {
     align-items: center;
     margin-bottom: 8px;
 }
 
-.sidebar__pay__text {
+.sidebar__pay__text,
+.check-label .sidebar__pay__text {
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
@@ -1123,12 +1127,12 @@ input[type=number] {
 }
 
 .form__field--error .form__input {
-    color: var(--system-coral);
-    border-bottom: 1px solid var(--system-coral);
+    color: var(--system-orange);
+    border-bottom: 1px solid var(--system-orange);
 }
 
 .form__error {
-    color: var(--system-coral);
+    color: var(--system-orange);
     font-size: 12px;
     font-weight: 400;
     line-height: 14px;
@@ -1298,7 +1302,7 @@ input[type=number] {
 }
 
 .modal__remove:hover svg path {
-    fill: var(--system-coral);
+    fill: var(--system-orange);
 }
 
 .mobile__nav {
