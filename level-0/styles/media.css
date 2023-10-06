@@ -383,4 +383,7 @@
     .card__btn--del {
         opacity: 1;
     }
+    .check-label .choose-all {
+        font-size: 16px;
+    }
 }

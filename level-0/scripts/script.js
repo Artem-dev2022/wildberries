@@ -53,8 +53,6 @@ const products = [
     {price: 476, discount: 48, chosenQuantity: 2, limitQuantity: 4, checked: false, deleted: false}
 ]
 
-let sidebarTotalPrice = 0
-
 function changeEnding(num, arr){
     let remainder = num % 100
     if (remainder >= 10 && remainder <= 20) {
@@ -72,6 +70,7 @@ function refreshSidebar(){
     const price = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * ((Number(j.price) - (Number(j.price) * Number(j.discount) / 100))), 0).toLocaleString('ru')
     totalPrice.textContent = price
     btnPaySpan.textContent = price
+    
     totalQuantity.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity), 0)
     totalOld.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * Number(j.price), 0).toLocaleString('ru')
     totalDiscount.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) - Number(j.chosenQuantity) * Number(j.price) * Number(j.discount) / 100, 0).toLocaleString('ru')
@@ -192,41 +191,38 @@ productCards.forEach((card, index) => {
         if (!cardChecks.checked) {
             mainCheckbox.checked = false
             products[index].checked = false;
-            sidebarTotalPrice -= products[index].chosenQuantity * (products[index].price - products[index].price * products[index].discount / 100)
-            totalPrice.textContent = sidebarTotalPrice.toLocaleString('ru');
-
+            
             showChosenGoodsInDelivery(false, index)
         } else {
             products[index].checked = true;
-            sidebarTotalPrice += products[index].chosenQuantity * (products[index].price - products[index].price * products[index].discount / 100)
-            totalPrice.textContent = sidebarTotalPrice.toLocaleString('ru');
-
+            
             showChosenGoodsInDelivery(true, index)
         }
         refreshActualPrice()
     })
 
-    counterMinus.addEventListener('click', () => {
-        counterInput.value--;
+    function checkCounterRange(){
         counterPlus.disabled = false;
+
         if (counterInput.value > 1) {
             counterMinus.disabled = false
         } else {
             counterMinus.disabled = true
         }
-        refreshActualPrice()
-        refreshLimit()
-    })
-    counterPlus.addEventListener('click', () => {
-        counterInput.value++;
-        counterMinus.disabled = false
-
         if (counterInput.value >= products[index].limitQuantity) {
             counterInput.value = products[index].limitQuantity;
             counterPlus.disabled = true;
         }
         refreshActualPrice()
         refreshLimit()
+    }
+    counterMinus.addEventListener('click', () => {
+        counterInput.value--;
+        checkCounterRange()
+    })
+    counterPlus.addEventListener('click', () => {
+        counterInput.value++;
+        checkCounterRange()
     })
     counterInput.addEventListener('change', () => {
         if (counterInput.value <= 1) {

@@ -45,12 +45,20 @@ export function form(){
     }
 
     btnPay.addEventListener('click', () => {
+        let firstError;
         formFields.forEach(field => {
+            
+            function checkFirstField(){
+                if (firstError === undefined) {
+                    firstError = field
+                }
+            }
+
             field.classList.remove('form__field--error');
             const formInput = field.querySelector('.form__input');
             if (formInput.value === '') {
                 field.classList.add('form__field--error')
-                scrollToError(field)
+                checkFirstField()
             }
 
             formInput.addEventListener('input', () => {
@@ -63,13 +71,13 @@ export function form(){
 
             function onError(validateInput, messageEmpty, messageValid){
                 if (formInput.value === '') {
-                    scrollToError(field)
+                    checkFirstField()
                     field.querySelector('.form__error').textContent = messageEmpty
                 }
                 else if (!validateInput(formInput.value)) {
                     field.classList.add('form__field--error')
                     field.querySelector('.form__error').textContent = messageValid
-                    scrollToError(field)
+                    checkFirstField()
                 }  else {
                     field.classList.remove('form__field--error')
                 }
@@ -99,6 +107,7 @@ export function form(){
                 })
             }
         })
+        scrollToError(firstError)
     })
 
     function checkMail(value){

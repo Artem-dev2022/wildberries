@@ -36,11 +36,18 @@ export function modals(){
             addresses[0].checked = true
         }
     }
+
+    function chosePostMethod(){
+        toPostBtn.classList.add('modal__buttons__btn--active')
+        byCourierBtn.classList.remove('modal__buttons__btn--active')
+        deliveryMethod = 'Доставка в пункт выдачи'
+    }
+
     function closeModalDeliveryPopUp(){
         modalDelivery.classList.remove('modal--active')
         deliveryData.forEach(item => item.chosen = false);
         deliveryData[0].chosen = true
-
+        chosePostMethod()
         setFirstAddressChecked()
     }
     modalDelivery.addEventListener('click', (e) => {
@@ -59,14 +66,18 @@ export function modals(){
 
     const toPostBtn = document.getElementById('to-post');
     const byCourierBtn = document.getElementById('by-courier');
+    const sidebarDeliveryTop = document.querySelector('.sidebar__delivery__top .title-h4');
+
+    let deliveryMethod = 'Доставка в пункт выдачи'
 
     toPostBtn.addEventListener('click', () => {
-        toPostBtn.classList.add('modal__buttons__btn--active')
-        byCourierBtn.classList.remove('modal__buttons__btn--active')
+        chosePostMethod()
+        deliveryMethod = 'Доставка в пункт выдачи'
     })
     byCourierBtn.addEventListener('click', () => {
         byCourierBtn.classList.add('modal__buttons__btn--active')
         toPostBtn.classList.remove('modal__buttons__btn--active')
+        deliveryMethod = 'Доставка курьером'
     })
 
     /// choose delivery address
@@ -91,6 +102,7 @@ export function modals(){
     modalDeliveryBtn.addEventListener('click', () => {
         sidebarAddress.textContent = deliveryData.find(item => item.chosen === true).address
         whiteBoxAddress.textContent = deliveryData.find(item => item.chosen === true).address
+        sidebarDeliveryTop.textContent = deliveryMethod
         closeModalDeliveryPopUp()
     })
 
