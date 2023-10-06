@@ -43,6 +43,9 @@ const btnPaySpan = document.querySelector('.sidebar__btn__text--pay span');
 const deliveryAmount = document.querySelectorAll('.white-box__condition__amount');
 const chosenGoodsInDelivery = document.querySelectorAll('.white-box__condition__good');
 const deliveryDateRow = document.querySelectorAll('.white-box__condition__item__date');
+const basketHeaderQuantity = document.getElementById('basket-header-quantity');
+const basketHeaderPrice = document.getElementById('basket-header-price');
+const basketHeaderGoods = document.getElementById('basket-header-goods');
 
 const products = [
     {price: 1051, discount: 50, chosenQuantity: 1, limitQuantity: 3, checked: false, deleted: false},
@@ -52,6 +55,19 @@ const products = [
 
 let sidebarTotalPrice = 0
 
+function changeEnding(num, arr){
+    let remainder = num % 100
+    if (remainder >= 10 && remainder <= 20) {
+        return arr[2]
+    } else {
+        remainder = num % 10
+    }
+    if (remainder == 1) return arr[0];
+    if (remainder > 1 && remainder < 5) return arr[1];
+    return arr[2];
+}
+
+
 function refreshSidebar(){
     const price = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * ((Number(j.price) - (Number(j.price) * Number(j.discount) / 100))), 0).toLocaleString('ru')
     totalPrice.textContent = price
@@ -59,14 +75,21 @@ function refreshSidebar(){
     totalQuantity.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity), 0)
     totalOld.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * Number(j.price), 0).toLocaleString('ru')
     totalDiscount.textContent = products.filter(i => i.checked === true && i.deleted === false).reduce((p,j) => Number(p) - Number(j.chosenQuantity) * Number(j.price) * Number(j.discount) / 100, 0).toLocaleString('ru')
+    
+    const HeaderQuantity = products.filter(i => i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity), 0)
+    basketHeaderQuantity.textContent = HeaderQuantity
+    basketHeaderPrice.textContent = products.filter(i => i.deleted === false).reduce((p,j) => Number(p) + Number(j.chosenQuantity) * ((Number(j.price) - (Number(j.price) * Number(j.discount) / 100))), 0).toLocaleString('ru')
+    basketHeaderGoods.textContent = changeEnding(HeaderQuantity, ['товар', 'товара', 'товаров'])
 }
 
 function showChosenGoodsInDelivery(check, index){
     if (check) {
-        chosenGoodsInDelivery[index].classList.add('white-box__condition__good--active')
-        if (index === 1)  {
-            chosenGoodsInDelivery[3].classList.add('white-box__condition__good--active')
-            deliveryDateRow[1].classList.add('white-box__condition__item__date--active')
+        if (products[index].deleted === false) {
+            chosenGoodsInDelivery[index].classList.add('white-box__condition__good--active')
+            if (index === 1)  {
+                chosenGoodsInDelivery[3].classList.add('white-box__condition__good--active')
+                deliveryDateRow[1].classList.add('white-box__condition__item__date--active')
+            }
         }
     } else {
         chosenGoodsInDelivery[index].classList.remove('white-box__condition__good--active')
@@ -99,18 +122,33 @@ productCards.forEach((card, index) => {
 
     const deleteCard = card.querySelector('.card__btn--del');
 
+    const cartQuantity = document.querySelector('.header__btn__amount')
+    const basketList = document.querySelector('.basket__list')
+    const basketListHeader = document.querySelector('.basket__list-header')
+    const basketEmpty = document.querySelector('.basket-empty')
+
+    function updateQuantity(){
+        const quantity = basketList.children.length
+
+        if (quantity === 2) {
+            cartQuantity.textContent = '2'
+        } else if (quantity === 1) {
+            cartQuantity.textContent = '1'
+        } else {
+            cartQuantity.textContent = '0'
+            basketList.style.display = 'none'
+            basketListHeader.style.display = 'none'
+            basketEmpty.style.display = 'block'
+        }
+    }
+
     deleteCard.addEventListener('click', () => {
         card.remove()
-        
+        updateQuantity()
         products[index].deleted = true;
         products[index].checked = false;
         refreshSidebar()
         showChosenGoodsInDelivery(false, index)
-       /*  products[index].checked = false;
-        sidebarTotalPrice -= products[index].chosenQuantity * (products[index].price - products[index].price * products[index].discount / 100)
-        totalPrice.textContent = sidebarTotalPrice.toLocaleString('ru');
-        refreshSidebar()
-        showChosenGoodsInDelivery(false, index) */
     })
 
     function refreshActualPrice(){

@@ -269,6 +269,12 @@ a {
     line-height: 24px;
 }
 
+.basket__list-header__total span {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
 .dropdown-checkbox {
     opacity: 0;
     visibility: hidden;
@@ -918,7 +924,8 @@ input[type=number] {
     border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 
-.absent__title {
+.absent__title,
+.absent__title span {
     font-weight: 600;
 }
 
@@ -1360,4 +1367,11 @@ input[type=number] {
 
 .modal-list-empty {
     display: none;
+}
+
+.basket-empty {
+    font-size: 18px;
+    font-weight: 600;
+    display: none;
+    margin-bottom: 30px;
 }

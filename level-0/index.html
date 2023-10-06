@@ -125,8 +125,7 @@
                 <span>Выбрать все</span>
               </label>
 
-              <span class="basket__list-header__total"
-                >266 товаров · 2 100 569 сом</span
+              <span class="basket__list-header__total"><span id="basket-header-quantity">266</span> <span id="basket-header-goods">товаров</span> · <span id="basket-header-price">2 100 569</span> сом</span
               >
 
               <label class="dropdown-arrow" for="in-stock">
@@ -598,6 +597,7 @@
                 </div>
               </li>
             </ul>
+            <span class="basket-empty">Здесь пока пусто!</span>
           </section>
           <section class="absent">
             <input
@@ -606,7 +606,7 @@
               id="out-of-stock"
             />
             <div class="absent__top">
-              <h4 class="absent__title title-h4">Отсутствуют · 3 товара</h4>
+              <h4 class="absent__title title-h4">Отсутствуют · <span id="absent-quantity">3 товара</span></h4>
               <label class="dropdown-arrow" for="out-of-stock">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
